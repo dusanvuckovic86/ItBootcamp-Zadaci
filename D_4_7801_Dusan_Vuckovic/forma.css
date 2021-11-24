@@ -35,6 +35,9 @@ fieldset {
         fieldset {
             height: 500px;
         }
+        p.submit input{
+            width: 90%;
+        }
         
     }
 
