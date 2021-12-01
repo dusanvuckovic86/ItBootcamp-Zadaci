@@ -72,7 +72,8 @@ textarea {
 
 p.submit input{
     float: right;
-    background-color: rgb(113, 220, 138);
+    background-color: rgb(89, 174, 108);
+    color: white;
     padding: 10px 15px;
     margin-top: px;
     border: none;
@@ -81,4 +82,7 @@ p.submit input{
     position: relative;
     bottom: 15px;
     right: 15px;
+}
+p.submit input:hover {
+    background-color: green;
 }
