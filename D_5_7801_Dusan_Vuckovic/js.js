@@ -38,7 +38,7 @@ else {
 
 let dnevniUnosKJ = 800;
 let konverzija = 4.1868;
-let unosKCal = dnevniUnosKJ / konverzija; //ispravljeno
+let unosKCal = dnevniUnosKJ / konverzija;
 console.log(unosKCal);
 
 if (unosKCal < 2000) {
