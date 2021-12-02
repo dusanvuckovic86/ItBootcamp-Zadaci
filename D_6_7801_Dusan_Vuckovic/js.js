@@ -20,7 +20,7 @@ console.log(proizvod);
 
 //drugi zadatak
 
-//Odredi zbir brojeva od n do m koji su deljivi sa 3 a nisu sa 7. Rezultat ispisati u konzoli
+//Odredi zbir brojeva od n do m koji su deljivi sa 3 a nisu sa 7. Rezultat ispisati u konzoli.
 
 
 let suma = 0;
