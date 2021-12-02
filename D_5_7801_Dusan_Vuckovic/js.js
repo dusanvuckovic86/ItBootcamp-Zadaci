@@ -1,4 +1,4 @@
-
+console.log("domaci pet")
 
 //PRVI ZADATAK
 
