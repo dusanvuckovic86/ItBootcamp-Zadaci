@@ -7,7 +7,7 @@ let dinariMika = 4600;
 let kusur = 2000;
 let dvaDzempera = dinariPera + dinariMika - kusur;
 console.log(dvaDzempera);
-let jedanDzemper = dvaDzempera/2;
+let jedanDzemper = dvaDzempera / 2;
 console.log(jedanDzemper);
 
 let kusurPera = dinariPera - jedanDzemper;
@@ -26,24 +26,24 @@ let neprocitano = ukupnoPoglavlja - ukupnoProcitano;
 
 console.log(`Citaocu je ostalo da procita ${neprocitano} poglavlja`);
 
-if (neprocitano < ukupnoPoglavlja/2){
+if (neprocitano < ukupnoPoglavlja / 2) {
     console.log("Ostalo je da se procita manje od polovine knjige");
 }
-else{
+else {
     console.log("Ostalo je da se procita više od polovine knjige");
-    
+
 }
 
 //TRECI ZADATAK
 
 let dnevniUnosKJ = 800;
 let konverzija = 4.1868;
-let unosKCal = dnevniUnosKJ * konverzija;
+let unosKCal = dnevniUnosKJ / konverzija;
 console.log(unosKCal);
 
-if (unosKCal < 2000){
+if (unosKCal < 2000) {
     console.log("​Potrebno je povećati dnevni unos");
 }
-else{
+else {
     console.log("Nije potrebno povećati dnevni unos");
 }
