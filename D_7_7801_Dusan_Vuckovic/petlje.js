@@ -11,7 +11,7 @@ while (i<=m){
     suma += i;
     i++
 }
-console.log(suma*2)
+console.log(suma*2);
 
 //Deseti zadatak
 
