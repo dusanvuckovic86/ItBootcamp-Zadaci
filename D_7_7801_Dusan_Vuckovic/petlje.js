@@ -4,23 +4,24 @@
 
 let n = 5;
 let m = 15;
-let suma = 0;
 let i = n;
 
 while (i<=m){
-    suma += i;
-    i++
+    console.log(i*2);
+    i++;
 }
-console.log(suma*2);
+
+
+
 
 //Deseti zadatak
 
 //Odrediti sumu brojeva od n do m .
 
-n = 1;
-m = 9;
-suma = 0;
-i = n;
+ n = 1;
+ m = 9;
+ suma = 0;
+ i = n;
 
 while (i <= m) {
     suma += i;
@@ -233,5 +234,9 @@ for (red = 1; red <= 8; red++) {
 
 }
 red += `</span>`;
+
+
+
+
 
 
