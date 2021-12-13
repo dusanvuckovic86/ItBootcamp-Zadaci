@@ -2,16 +2,25 @@
 
 //Ispisati dvostruku vrednost brojeva od 5 do 15.
 
+let n = 5;
+let m = 15;
+let suma = 0;
+let i = n;
 
+while (i<=m){
+    suma += i;
+    i++
+}
+console.log(suma*2)
 
 //Deseti zadatak
 
 //Odrediti sumu brojeva od n do m .
 
-let n = 1;
-let m = 9;
-let suma = 0;
-let i = n;
+n = 1;
+m = 9;
+suma = 0;
+i = n;
 
 while (i <= m) {
     suma += i;
