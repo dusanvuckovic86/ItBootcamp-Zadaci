@@ -6,28 +6,28 @@ let n = 5;
 let m = 15;
 let i = n;
 
-while (i<=m){
-    console.log(i*2);
+while (i <= m) {
+    console.log(i * 2);
     i++;
 }
-
-
 
 
 //Deseti zadatak
 
 //Odrediti sumu brojeva od n do m .
 
- n = 1;
- m = 9;
- suma = 0;
- i = n;
+n = 1;
+m = 9;
+suma = 0;
+i = n;
 
 while (i <= m) {
     suma += i;
     i++;
 }
 console.log(suma);
+
+
 
 //Jedanaesti zadatak
 
@@ -44,6 +44,7 @@ while (i <= m) {
     i++;
 }
 console.log(suma);
+
 
 //Dvanaesti zadatak
 
@@ -62,6 +63,7 @@ while (i <= m) {
 }
 console.log(proizvod);
 
+
 //Trinaesti zadatak
 
 //Prebrojati koliko brojeva od n do m je pozitivno, a koliko njih je negativno.
@@ -70,8 +72,6 @@ n = -25;
 m = 32;
 let brojac1 = 0;
 let brojac2 = 0;
-
-
 
 for (i = n; i <= m; i++) {
     if (i < 0) {
@@ -82,6 +82,7 @@ for (i = n; i <= m; i++) {
     }
 }
 console.log(`Negativnih brojeva je ${brojac1}, pozitivnih brojeva je ${brojac2}.`);
+
 
 //Cetrnaesti zadatak
 
@@ -166,6 +167,7 @@ console.log(suma);
 //Osamnaesti zadatak
 
 //Koristeći for petlju kreirati neuređenu listu sa ugnježdenim elementima, kao što je prikazano na slici.
+
 let li;
 let lista = `<ul>`;
 for (li = 1; li <= 10; li++) {
@@ -186,7 +188,6 @@ document.body.innerHTML += lista;
 //Devetnaesti zadatak
 
 //Kreirati 64 span elemenata i rasporediti ih kao na slici, tako da elementi izgledaju kao polja šahovske table. U realizaciji ovog zadatka koristiti for petlju.
-
 
 
 let red = `<span>`;
@@ -234,9 +235,3 @@ for (red = 1; red <= 8; red++) {
 
 }
 red += `</span>`;
-
-
-
-
-
-

@@ -3,6 +3,7 @@
 
 function mnozi(n, m) {
     let proizvod = 1;
+
     for (i = n; i <= m; i++) {
         proizvod *= i;
     }
@@ -42,27 +43,21 @@ function arSredina3(n, m) {
 
             suma += i;
             brojac++;
-
         }
-
-
     }
-    if (brojac == 0){
+    
+    if (brojac == 0) {
         return `U intervalu od ${n} do ${m} nema brojeva koji se zavrsavaju na 3`
     }
-   else
-       {
-    let sredina = suma / brojac;
-    return sredina};
+    else {
+        let sredina = suma / brojac;
+        return sredina
+    };
 }
 
 
 let sredina = arSredina3(1, 10);
 console.log(sredina);
-
-
-
-
 
 
 
