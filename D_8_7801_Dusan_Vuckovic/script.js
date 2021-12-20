@@ -8,7 +8,7 @@ let sumaParnih = niz => {
     let suma = 0;
     for (let i = 0; i < niz.length; i++) {
 
-        if (niz[i] % 2 == 0) {
+        if (i % 2 == 0) {
             suma += niz[i];
         }
     }
@@ -48,7 +48,7 @@ let neparniElementi = niz => {
     let brojac = 0;
     for (let i = 0; i < niz.length; i++) {
 
-        if (niz[i] % 2 != 0) {
+        if (i % 2 != 0) {
             brojac++;
         }
     }
