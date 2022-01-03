@@ -1,5 +1,3 @@
-console.log(`domaci`)
-
 knjiga1 = {
   naziv: "Fric i Dobrila",
   autor: "Srđan Valjarević",
@@ -76,6 +74,3 @@ for (let i = 0; i < nizKnjiga.length; i++) {
 tabela += "</table>"
 
 document.body.innerHTML += tabela;
-
-
-
