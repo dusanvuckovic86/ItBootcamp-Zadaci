@@ -1,4 +1,4 @@
-
+console.log(`domaci`)
 
 knjiga1 = {
   naziv: "Fric i Dobrila",
