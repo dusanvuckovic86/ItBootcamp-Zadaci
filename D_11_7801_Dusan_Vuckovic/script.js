@@ -55,6 +55,8 @@ for (let i = 0; i < nizKnjiga.length; i++) {
     </tr>`
     }
   }
+
+  
   else {
     let procitano = nizKnjiga[i].procitano;
     if (procitano == true) {
