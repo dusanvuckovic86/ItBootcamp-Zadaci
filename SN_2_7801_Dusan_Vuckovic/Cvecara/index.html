@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form action="">
+        <p>
+        <h2>Odaberite cveće:</h2>
+        <input type="number" min="0" step="1" id="ruze" placeholder="Cena po cvetu je 300 din."> Ruže
+        <input type="number" min="0" step="1" id="ljiljani" placeholder="Cena po cvetu je 200 din."> Ljijani
+        <input type="number" min="0" step="1" id="gerberi" placeholder="Cena po cvetu je 100 din."> Gerberi
+        </p>
+        <br>
+        <p>
+        <h2>Dodatni pokloni:</h2>
+        <input type="checkbox" name="+ Bombonjera" class="poklon" value="500"> Bombonjera
+        <input type="checkbox" name="+ Čokolada" class="poklon" value="500"> Čokolada
+        <input type="checkbox" name="+ Šampanjac" class="poklon" value="500"> Šampanjac
+        </p>
+        <br>
+        <p>
+        <h2>Plaćanje:</h2>
+        <input type="radio" value="kes" name="placanje" id="" checked> Keš
+        <input type="radio" value="kartica" name="placanje" id=""> Kartica
+        </p>
+        <br>
+        <p>
+            <input type="submit" value="Izracunaj" id="izracunaj">
+            <input type="submit" value="Resetuj" id="resetuj">
+        </p>
+
+    </form>
+
+    <br>
+
+    <h2>Vaša porudžbina:</h2>
+    <br>
+    <p id="ispis"></p>
+    <br>
+    <p id="ispis1"></p>
+    <br>
+    <p id="cena"></p>
+
+
+    <script src="cvecara.js"></script>
+</body>
+
+</html>
