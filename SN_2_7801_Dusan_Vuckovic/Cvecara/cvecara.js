@@ -29,25 +29,25 @@ btnIzracunaj.addEventListener("click", btn => {
 
     // pokloni
 
-    let cenaPoklona = inputPoklon => {
 
-        let suma = 0;
-        for (let i = 0; i < inputPoklon.length; i++) {
 
-            if (inputPoklon[i].checked == true) {
-                let pokloniValue = inputPoklon[i].value;
-                pokloniValue = parseInt(pokloniValue);
-                suma += pokloniValue
-                inputIspis1.innerHTML += `${inputPoklon[i].name} <br>` // ispis poklona
-            }
+    let suma = 0;
+    for (let i = 0; i < inputPoklon.length; i++) {
+
+        if (inputPoklon[i].checked == true) {
+            let pokloniValue = inputPoklon[i].value;
+            pokloniValue = parseInt(pokloniValue);
+            suma += pokloniValue
+            inputIspis1.innerHTML += `${inputPoklon[i].name} <br>` // ispis poklona
         }
-        return suma
-    };
+    }
+
+
 
 
     // cena
 
-    let ukupnoCena = (ruzeValue * 300) + (ljiljaniValue * 200) + (gerberiValue * 100) + cenaPoklona(inputPoklon);
+    let ukupnoCena = (ruzeValue * 300) + (ljiljaniValue * 200) + (gerberiValue * 100) + suma;
     let popustCena = ukupnoCena * 90 / 100;
 
 
@@ -67,7 +67,7 @@ btnIzracunaj.addEventListener("click", btn => {
     };
 
     // slicice - ispis
-    
+
     let slikaRuza = `<img src="asets/ruza.png">`
     let slikaLjiljan = `<img src="asets/ljiljan.png">`
     let slikaGerber = `<img src="asets/gerber.png">`
@@ -82,11 +82,11 @@ btnIzracunaj.addEventListener("click", btn => {
         inputIspis.innerHTML += slikaGerber
     };
 
-    
-    
 
 
-}, {once: true});
+
+
+}, { once: true });
 
 
 
