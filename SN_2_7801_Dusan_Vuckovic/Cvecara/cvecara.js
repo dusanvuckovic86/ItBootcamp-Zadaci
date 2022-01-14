@@ -15,6 +15,7 @@ let inputCena = document.getElementById("cena");
 
 btnIzracunaj.addEventListener("click", btn => {
     btn.preventDefault();
+    
 
     let ruzeValue = inputRuze.value;
     ruzeValue = parseInt(ruzeValue || 0);
