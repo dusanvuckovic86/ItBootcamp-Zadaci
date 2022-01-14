@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    width: 35%;
+    margin: 0 auto;
+    background-color: rgb(248, 202, 185);
+}
+
+.divPitanje {
+    border: 2px solid rgba(142, 42, 35, 0.212);
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: rgb(239, 247, 244);
+}
