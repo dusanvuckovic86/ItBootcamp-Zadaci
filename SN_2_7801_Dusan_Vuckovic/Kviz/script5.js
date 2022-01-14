@@ -61,11 +61,9 @@ pitanje10 = {
 }
 
 
-
-
-
-
 let nizPitanja = [pitanje1, pitanje2, pitanje3, pitanje4, pitanje5, pitanje6, pitanje7, pitanje8, pitanje9, pitanje10];
+
+
 
 let izmesajPitanja = arr => {
     for (let i = arr.length - 1; i > 0; i--) {
