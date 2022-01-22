@@ -1,0 +1,27 @@
+[
+    {
+        "imePrezime": "Petar Peric",
+        "visina": 205,
+        "timovi": ["Zvezda","Partizan","Vojvodina"]
+    },
+    {
+        "imePrezime": "Marko Maric",
+        "visina": 180,
+        "timovi": ["Zvezda","Vojvodina"]
+    },
+    {
+        "imePrezime": "Jovan Jovic",
+        "visina": 195,
+        "timovi": ["CSKA"]
+    },
+    {
+        "imePrezime": "Ivan Ivic",
+        "visina": 195,
+        "timovi": ["Vojvodina","CSKA","Lakers"]
+    },
+    {
+        "imePrezime": "Milan Milic",
+        "visina": 185,
+        "timovi": ["CSKA","Lakers"]
+    }
+]
