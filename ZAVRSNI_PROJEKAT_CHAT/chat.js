@@ -3,6 +3,7 @@ class Chatroom {
         this.room = r;
         this.username = u;
         this.chats = db.collection("chats");
+        this.unsub = false;
     }
 
     set room(r) {
@@ -15,22 +16,19 @@ class Chatroom {
 
 
     set username(u) {
-
         let userNameVal = u;
         let userNameValue = userNameVal.trim();
-
         if ((userNameValue != "" || userNameValue != null) && userNameValue.length >= 2 && userNameValue.length <= 10) {
             this._username = u;
-            console.log('Ispravno korisnicko ime')
+            console.log('Ispravno korisnicko ime');
         }
         else {
-            alert('Username must include more than two and less then ten letters or numbers')
+            alert('Username must include more than two and less then ten letters or numbers');
         };
-
-    }
+    };
     get username() {
         return this._username;
-    }
+    };
 
 
     // Dodavanje nove poruke
@@ -49,35 +47,49 @@ class Chatroom {
         let response = await this.chats.add(docChat);
         return response;
 
-    }
+    };
 
+    // Update room
+
+    updateRoom(ur) {
+        this.room = ur;
+        if (this.unsub != false) {
+            this.unsub();
+        };
+    };
 
     getChats(callback) {
-        this.chats
+        this.unsub = this.chats
             .where('room', '==', this.room)
             .orderBy('created_at', 'asc')
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
-                    // //kada se desila promena u bazi                     
-                    //ispisati dokumente
                     if (change.type == "added") {
-                        callback(change.doc.data())
+                        callback(change.doc)
                     }
                 });
-            })
-    }
-    //     validateUserName(vrednost){
-    //     if(vrednost.length >= 2 && vrednost.length <=10){
+            });
+    };
 
-    //     }
-    // }
+
     updateUsername(username) {
-
         this.username = username;
+    };
 
-    }
+    deleteMessage(id) {
+        this.chats
+            .doc(id)
+            .delete()
+            .then(
+                console.log(`Message deleted`)
+            )
+            .catch(err => {
+                console.log(`Error ${err}`)
+            })
+    };
+
+
 
 }
-
 
 export default Chatroom;

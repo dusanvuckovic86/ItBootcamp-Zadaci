@@ -16,34 +16,48 @@ body{
     text-align: center;
     margin: 15px 0;
     color: #323232;
-    font-size: 75px;
+    font-size: 55px;
 }
 #podnaslov{
     margin: 15px 0;
     text-align: center;
     color: #323232;
-    font-size: 35px;
+    font-size: 25px;
 }
 .row {
     overflow: hidden;
 }
 .ispisanaPoruka {
-    background-color: #ffe600c4;
+    background-color: #323232;
     padding: 10px;
     margin: 0 auto;
     margin-top: 10px;
-    width: 75%;
-    color: #323232;
-    border: #c2c0c0 solid 1px;
+    color: #ffe600c4;
+    border: #b3ad5d solid 1px;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     
 }
 
+.ispisanaPoruka2 {
+    background-color: #ffe600c4;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 10px;
+    color: #323232;
+    border: #c2c0c0 solid 1px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    
+}
 /* Mobile*/
 @media only screen and (max-width: 829px){
-    [class*="col-"] {
+    body{
+        max-width: 95%;
+    }
+    [class*="col-m"] {
         width: 100%;
       }
       ul li a {
@@ -56,6 +70,21 @@ body{
         margin: 25px 0; 
         overflow-x: hidden;
         overflow-y: scroll;
+    }
+    #ispis {
+        width: 100%;
+    }  
+    #ispis2 {
+        width: 100%;
+    }  
+    #slicica{
+        width: 7%;
+    }
+    .ispisanaPoruka2 {
+        width: 85%;
+    }
+    .ispisanaPoruka {
+        width: 85%;  
     }
 }
 
@@ -76,6 +105,21 @@ body{
         margin: 25px 0; 
         overflow-x: hidden;
         overflow-y: scroll;
+    }
+    #ispis {
+        width: 100%;
+    }  
+    #ispis2 {
+        width: 100%;
+    } 
+    #slicica{
+        width: 3%;
+    }
+    .ispisanaPoruka2 {
+        width: 65%;
+    }
+    .ispisanaPoruka {
+        width: 65%;  
     }
 }
 
@@ -100,7 +144,21 @@ body{
     ul li a {
         font-size: 20px; 
     }
-   
+    #ispis {
+        width: 50%;
+    }  
+    #ispis2 {
+        width: 50%;
+    } 
+    #slicica{
+        width: 3%;
+    }
+    .ispisanaPoruka2 {
+        width: 55%;
+    }
+    .ispisanaPoruka {
+        width: 55%;  
+    }
 }
 
 ul li {
@@ -133,13 +191,16 @@ ul li a:hover {
 }
 #element{
     border: #c2c0c0 solid 2px;
-    height: 450px;
-    margin: 25px 0;
+    height: 400px;
+    margin-top: 25px;
     background-color: white;
     border-radius: 15px;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 10px;
+}
+#ispisUserName{
+    height: 50px;
 }
 .btnColor {
     background-color: #323232;
@@ -155,13 +216,21 @@ ul li a:hover {
     background-color: #ffe600;
     color: #323232;
 }
-#unosPoruke, #userName {
+#btnUnosPoruke{
+    vertical-align: top;
+}
+#unosPoruke, #userName, #bojaPozadine {
     padding: 10px;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: #c2c0c0 1px solid;
     margin: 0 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 15px;
+}
+#bojaPozadine{
+    outline: none;;
 }
 #ispis {
     background-color: greenyellow;
@@ -169,6 +238,7 @@ ul li a:hover {
     margin-top: 5px;
     border-radius: 25px;
     color: #323232;
+    font-family: 'Montserrat', sans-serif;
 }  
 #ispis2 {
     background-color: rgb(255, 78, 47);
@@ -176,9 +246,47 @@ ul li a:hover {
     margin-top: 5px;
     border-radius: 25px;
     color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
 }  
+#slicica{
+    display: block;
+    position: relative;
+    left: 95%;
+}
+#slicica:hover{
+    cursor: pointer;
+}
 
-
+ul li:active {
+    border-radius: 25px;
+    background-color: #ffe600;
+    color: #323232;
+}
+.inputPolja{
+    width: 65%;
+    height: 50px;
+}
+.datum {
+    text-align: center;
+    width: 100%;
+    border: #323232 1px solid;
+    display: inline;
+}
+a:focus {
+    background-color: #ffe600;
+    color: #323232;
+}
+#datumPocetni, #datumKrajnji {
+    display: inline !important;
+    width: 33%;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 15px;
+    border: #32323263 1px solid;
+    padding: 10px 5px 10px 0;
+}
+#btnFilter{
+    margin-left: 5px;
+}
 /* Scrollbar */
 
 /* width */

@@ -13,53 +13,37 @@ let userName = document.getElementById('userName');
 let btnUserName = document.getElementById('btnUserName');
 let ispisUserName = document.getElementById('ispisUserName');
 let navigacija = document.getElementById('navigacija');
+let ispisanaPoruka = document.getElementsByClassName('ispisanaPoruka');
+let btnPromenaBoje = document.getElementById('btnPromenaBoje');
+let bojaPozadine = document.getElementById('bojaPozadine');
+let pocetniDatum = document.getElementById('datumPocetni');
+let krajnjiDatum = document.getElementById('datumKrajnji');
+let btnFilter = document.getElementById('btnFilter')
+
 
 
 //Objekti klasa
 
 let setUsername = 'Anonimus';
+if (localStorage.usernameInput) {
+    setUsername = localStorage.usernameInput
+}
 let chatroom = new Chatroom(setUsername, 'general');
 let chatUI = new ChatUI(divChat);
 
+//Ispis dokumenata iz db 
 
-//demonstracija local storage-a - postavljanje vrednosti
-localStorage.setItem("nazivPromenljive", 5);
-localStorage.setItem("xnazivPromenljive", "Test string");
-localStorage.setItem("x", 7);
-localStorage.setItem("y", 10);
-
-//uzimanje vrednosti iz local strorage-a
-let z = localStorage.x + localStorage.y;
-console.log(z)
-
-
-
-//ispis dokumenata iz db u konzoli
 chatroom.getChats(d => {
-    console.log(d);
+    chatUI.templateP(d);
 })
 
-
-console.log(chatUI)
-
-
-
-//ispis poruka na stranici
-
-// chatroom.getChats(d => {
-//     chatUI.templateP(d)
-// })
-
-//dodavanje poruke u bazu i na staranicu
-
+//Dodavanje poruke u bazu i na staranicu
 
 btnUnosPoruke.addEventListener('click', x => {
     x.preventDefault();
 
     let unosPorukeValue = unosPoruke.value;
     let unosPorukeValueTrim = unosPorukeValue.trim()
-
-    console.log(unosPorukeValueTrim)
 
     if (unosPorukeValueTrim == "" || unosPorukeValueTrim == null) {
         alert('You did not enter message')
@@ -73,58 +57,125 @@ btnUnosPoruke.addEventListener('click', x => {
             .catch((err) => {
                 console.log(err)
             })
-
     };
-
 
 });
 
 
-// ispis obavestenja o promeni username
-
-
-
+// Ispis obavestenja o promeni username-a
 
 btnUserName.addEventListener('click', c => {
     c.preventDefault()
 
     let userNameVal = userName.value;
     let userNameValue = userNameVal.trim()
-    localStorage.setItem("usernameInput", userNameValue);
-    if (localStorage.usernameInput) {
-        userNameValue = localStorage.usernameInput
-    }
-
 
     if (userNameValue.length >= 2 && userNameValue.length <= 10 && (userNameValue != "" || userNameValue != null)) {
-        chatroom.updateUsername(userNameValue);
 
+        chatroom.updateUsername(userNameValue);
         let ispis = document.createElement('p');
         ispis.id = 'ispis'
         ispis.innerHTML = `Korisnicko ime je promenjeno: ${userNameValue}`;
         ispisUserName.appendChild(ispis)
         userName.value = "";
+        setTimeout(() => {
+            ispis.remove();
+        }, 3000);
+        localStorage.setItem("usernameInput", userNameValue);
     }
     else {
-        chatroom.updateUsername(userNameValue);
 
+        chatroom.updateUsername(userNameValue);
         let ispis = document.createElement('p');
         ispis.id = 'ispis2'
         ispis.innerHTML = `Korisnicko ime nije pravilno uneto`;
         ispisUserName.appendChild(ispis)
         userName.value = "";
+        setTimeout(() => {
+            ispis.remove();
+        }, 3000);
     }
 
-})
 
-//Navigacija
+
+});
+
+//Ispis poruka u sobama
 
 navigacija.addEventListener('click', e => {
     if (e.target.tagName === "A") {
         chatUI.clear();
-        chatroom.room = e.target.id;
+        chatroom.updateRoom(e.target.id)
         chatroom.getChats(d => {
             chatUI.templateP(d)
-        })
+        });
+    };
+});
+
+
+
+
+//brisanje poruka
+divChat.addEventListener('click', function (event) {
+
+    console.log(event.target.parentNode.childNodes)
+    if (event.target.tagName === 'IMG') {
+
+        if (event.target.parentNode.childNodes[0].nodeValue.includes(localStorage.usernameInput) == true) {
+            let ok = confirm('Da li zelite da obrisete poruku')
+            if (ok == true) {
+                event.target.parentElement.remove() // brise ga samo sa ekrana
+                chatroom.deleteMessage(event.target.parentElement.id)//brise i iz memorije
+            }
+        }
+        else {
+            event.target.parentElement.remove()
+        }
+
     }
+})
+
+
+//Promena boje pozadine
+
+
+if (localStorage.bojaPozadine) {
+    document.body.style.backgroundColor = localStorage.bojaPozadine
+}
+else {
+    document.body.style.backgroundColor = '#ffffff';
+}
+
+btnPromenaBoje.addEventListener('click', y => {
+    y.preventDefault();
+
+    let bojaPozadineValue = bojaPozadine.value;
+    localStorage.setItem("bojaPozadine", bojaPozadineValue);
+    setTimeout(() => {
+        document.body.style.backgroundColor = bojaPozadineValue;
+    }, 1000 / 2);
+});
+
+
+
+//Filter datuma
+
+
+btnFilter.addEventListener('click', e => {
+    e.preventDefault()
+    let pocetniDatVal = pocetniDatum.value;
+    let pocetni = new Date(pocetniDatVal);
+    pocetni = firebase.firestore.Timestamp.fromDate(pocetni);
+
+    let krajnjiDatumVal = krajnjiDatum.value;
+    let krajnji = new Date(krajnjiDatumVal);
+    krajnji = firebase.firestore.Timestamp.fromDate(krajnji);
+
+    chatUI.clear();
+    chatroom.getChats(d => {
+        let datumiPoruka = d.data().created_at;
+        if (datumiPoruka.seconds > pocetni.seconds && datumiPoruka.seconds < krajnji.seconds) {
+            chatUI.templateP(d);
+        }
+    })
 })

@@ -1,7 +1,5 @@
 
 
-
-
 class ChatUI {
     constructor(div) {
         this.divElement = div
@@ -33,18 +31,48 @@ class ChatUI {
     }
 
     templateP(doc) {
-        let d = doc.created_at.toDate();
 
-        let paragraf = document.createElement('p')
-        paragraf.className = "ispisanaPoruka"
-        paragraf.innerHTML += `${doc.username} : ${doc.message} <br> ${this.formatiranjeVremena(d)}`
-        this.divElement.appendChild(paragraf)
+        let id = doc.id;
+        let data = doc.data();
+        let userName = data.username
+        let d = data.created_at.toDate();
 
-    }
+        if (userName == localStorage.usernameInput) {
+            let paragraf = document.createElement('p')
+            paragraf.style.float = 'right'
+            paragraf.className = "ispisanaPoruka"
+            paragraf.id = id;
+            paragraf.innerHTML += `${data.username}:`;
+            let paragrafIspis = document.createElement('p');
+            paragrafIspis.innerHTML += ` ${data.message} <br> ${this.formatiranjeVremena(d)}`;
+            paragraf.appendChild(paragrafIspis)
+            let slicica = document.createElement('img');
+            slicica.src = './asets/kanta_otpad2.png';
+            slicica.id = 'slicica';
+            paragraf.appendChild(slicica);
+            this.divElement.appendChild(paragraf)
+        }
+        else {
+            let paragraf = document.createElement('p')
+            paragraf.style.float = 'left'
+            paragraf.className = "ispisanaPoruka2"
+            paragraf.id = id;
+            paragraf.innerHTML += `${data.username}:`;
+            let paragrafIspis = document.createElement('p');
+            paragrafIspis.innerHTML += ` ${data.message} <br> ${this.formatiranjeVremena(d)}`;
+            paragraf.appendChild(paragrafIspis)
+            let slicica = document.createElement('img');
+            slicica.src = './asets/kanta_otpad.png';
+            slicica.id = 'slicica';
+            paragraf.appendChild(slicica);
+            this.divElement.appendChild(paragraf)
+        }
+    };
+
 
     clear() {
         this.divElement.innerHTML = "";
-    }
+    };
 
 }
 
