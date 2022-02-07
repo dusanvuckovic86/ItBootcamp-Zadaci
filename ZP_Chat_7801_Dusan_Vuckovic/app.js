@@ -80,7 +80,8 @@ btnUserName.addEventListener('click', c => {
         userName.value = "";
         setTimeout(() => {
             ispis.remove();
-        }, 3000);
+            document.location.reload();
+        }, 2000);
         localStorage.setItem("usernameInput", userNameValue);
     }
     else {
@@ -93,7 +94,7 @@ btnUserName.addEventListener('click', c => {
         userName.value = "";
         setTimeout(() => {
             ispis.remove();
-        }, 3000);
+        }, 2000);
     }
 
 
